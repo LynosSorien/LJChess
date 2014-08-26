@@ -11,6 +11,4 @@ public class Control {
         this.gameControl = new GameControl();
         this.dataControl = new DataControl();
     }
-
-
 }
