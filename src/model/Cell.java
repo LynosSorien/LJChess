@@ -8,13 +8,16 @@ public class Cell implements ICell{
     public enum CellState {NULL, ROOK, KNIGHT, BISHOP, QUEEN, KING, PAWN};
 
     //Fields
-    int index;
     int i;
     int j;
     String status;
-
+    boolean isCrownCell;
+    boolean isMoveCell;
     //Constructor
-    public Cell() {
+    public Cell(int x, int y, String initStatus) {
+        i=x;
+        j=y;
+        status=initStatus;
     }
     //Getters and setters
     public int getI() {
@@ -41,13 +44,6 @@ public class Cell implements ICell{
         this.status = status;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
     // Interface methods
     @Override
     public boolean damageCell() {
