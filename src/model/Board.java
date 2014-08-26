@@ -13,17 +13,17 @@ public class Board implements IBoard{
         for (int i=0;i>8;i++){
             for (int j=0;j<8;j++){
                 if(i == 0 || i == 7){
-                    if(j == 0 || j == 7) board[i][j]= new Cell(i,j,"ROOK");
-                    else if(j == 1 || j == 6) board[i][j]= new Cell(i,j,"KNIGHT");
-                    else if(j == 2 || j == 5) board[i][j]= new Cell(i,j,"BISHOP");
-                    else if(j == 3) board[i][j]= new Cell(i,j,"QUEEN");
-                    else board[i][j]= new Cell(i,j,"KING");
+                    if(j == 0 || j == 7) board[i][j]= new Cell(i,j,Cell.CellState.ROOK, null);
+                    else if(j == 1 || j == 6) board[i][j]= new Cell(i,j,Cell.CellState.KNIGHT, null);
+                    else if(j == 2 || j == 5) board[i][j]= new Cell(i,j,Cell.CellState.BISHOP, null);
+                    else if(j == 3) board[i][j]= new Cell(i,j,Cell.CellState.QUEEN, null);
+                    else board[i][j]= new Cell(i,j,Cell.CellState.KING, null);
                 }
                 else if(i == 1 || i == 6){
-                    board[i][j]= new Cell(i,j,"PAWN");
+                    board[i][j]= new Cell(i,j,Cell.CellState.PAWN, null);
                 }
                 else{
-                    board[i][j]= new Cell(i,j,"NULL");
+                    board[i][j]= new Cell(i,j,Cell.CellState.NULL, null);
                 }
             }
         }
@@ -45,7 +45,7 @@ public class Board implements IBoard{
 
     @Override
     public boolean damageCell(int index) {
-        return false;
+        return damageCell(index/8, index%8);
     }
 
     @Override

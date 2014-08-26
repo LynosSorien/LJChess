@@ -5,19 +5,22 @@ package model;
  */
 public class Cell implements ICell{
 
-    public enum CellState {NULL, ROOK, KNIGHT, BISHOP, QUEEN, KING, PAWN};
+    public static enum CellState {NULL, ROOK, KNIGHT, BISHOP, QUEEN, KING, PAWN};
 
     //Fields
-    int i;
-    int j;
-    String status;
-    boolean isCrownCell;
-    boolean isMoveCell;
+    private int i;
+    private int j;
+    //String status;
+    private Cell.CellState status;
+    private boolean isCrownCell;
+    private boolean isMoveCell;
+    private Class<? extends Piece> p;
     //Constructor
-    public Cell(int x, int y, String initStatus) {
+    public Cell(int x, int y, Cell.CellState initStatus, Class<? extends Piece> piece) {
         i=x;
         j=y;
         status=initStatus;
+        this.p = piece;
     }
     //Getters and setters
     public int getI() {
@@ -36,11 +39,11 @@ public class Cell implements ICell{
         this.j = j;
     }
 
-    public String getStatus() {
+    public Cell.CellState getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Cell.CellState status) {
         this.status = status;
     }
 
