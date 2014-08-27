@@ -14,7 +14,7 @@ public class Main {
     public Main(){
         int option = -1;
         ctrl = new Control();
-
+        menu();
         option = Integer.parseInt(sc.nextLine());
     }
 
