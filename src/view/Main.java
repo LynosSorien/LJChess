@@ -8,23 +8,46 @@ import java.util.Scanner;
  * Created by juanma on 27/08/14.
  */
 public class Main {
+    public static final int PLAY = 1;
+    public static final int OPTIONS = 2;
+    public static final int EXIT = 3;
     private Scanner sc;
     private Control ctrl;
 
     public Main(){
         int option = -1;
         ctrl = new Control();
-        menu();
-        option = Integer.parseInt(sc.nextLine());
+        sc = new Scanner(System.in);
     }
 
-    public void menu(){
+    public void printMenu(){
         System.out.println("############### MENU ##############");
-        System.out.println("1. Play");
-        System.out.println("2. Exit");
+        System.out.println(PLAY+". Play");
+        System.out.println(OPTIONS+". Options");
+        System.out.println(EXIT+". Exit");
+        System.out.println("###################################");
+    }
+    
+    public void start() {
+        do {
+            printMenu();
+            option = Integer.parseInt(sc.nextLine());
+            switch(option) {
+                case PLAY:
+                    // ctrl.startGame() or something.
+                    break;
+                case OPTIONS:
+                    // Set the player preferences
+                    // Player name ....
+                    break;
+                case EXIT:break;
+                default:System.out.println("Incorrect Option");
+            }
+        } while(option!=EXIT);
+        System.out.println("Thanks for playing!");
     }
 
     public void main (String[] args){
-        new Main();
+        new Main().start();
     }
 }
