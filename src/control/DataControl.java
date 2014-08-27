@@ -13,8 +13,8 @@ public class DataControl {
     private Board board;
     private Player player1;
     private Player player2;
-    private List white;
-    private List black;
+    private List<? extends Piece> white;
+    private List<? extends Piece> black;
 
     public DataControl(){
         this.board = new Board();
