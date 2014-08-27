@@ -8,8 +8,8 @@ public class Control {
     private DataControl dataControl;
 
     public Control (){
-        this.gameControl = new GameControl();
         this.dataControl = new DataControl();
+        this.gameControl = new GameControl(this.dataControl);
     }
 
     /*
