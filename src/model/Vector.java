@@ -26,7 +26,7 @@ public class Vector {
     return y;
   }
   
-  public Vector setX(int y) {
+  public Vector setY(int y) {
     this.y = y;
     return this;
   }
