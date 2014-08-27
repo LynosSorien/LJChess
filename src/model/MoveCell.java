@@ -5,13 +5,12 @@ package model;
  */
 public class MoveCell extends Cell{
     private Board board;
-    public MoveCell(int x, int y, CellState initStatus, Class<? extends Piece> piece) {
+    public MoveCell(int x, int y, CellState initStatus, Piece piece) {
         super(x, y, initStatus, piece);
+
     }
     public int pawnStartMove(){
-        while(){
 
-        }
 
         return 0;
     }

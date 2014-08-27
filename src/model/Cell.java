@@ -11,10 +11,10 @@ public class Cell implements ICell{
     private int i;
     private int j;
     private Cell.CellState status;
-    private Class<? extends Piece> p;
+    private Piece p;
 
     //Constructor
-    public Cell(int x, int y, Cell.CellState initStatus, Class<? extends Piece> piece) {
+    public Cell(int x, int y, Cell.CellState initStatus, Piece piece) {
         i=x;
         j=y;
         status=initStatus;
@@ -45,6 +45,10 @@ public class Cell implements ICell{
         this.status = status;
     }
 
+    public void setP(Piece p) {
+        this.p = p;
+    }
+
     // Interface methods
     @Override
     public boolean damageCell() {
@@ -53,7 +57,7 @@ public class Cell implements ICell{
 
     @Override
     public Piece getPiece() {
-        return null;
+        return p;
     }
 
     @Override
