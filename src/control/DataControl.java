@@ -11,6 +11,8 @@ import java.util.List;
  */
 public class DataControl {
     private Board board;
+    private Player player1;
+    private Player player2;
     private List white;
     private List black;
 
@@ -22,5 +24,15 @@ public class DataControl {
 
     public Board getBoard(){
         return this.board;
+    }
+
+    public void setPlayerName(int i, String name){
+        if (i==0)this.player1.setName(name);
+        else    this.player2.setName(name);
+    }
+
+    public String getPlayerName(int i){
+        if (i==0)return this.player1.getName();
+        else    return this.player2.getName();
     }
 }
