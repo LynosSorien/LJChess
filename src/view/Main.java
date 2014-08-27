@@ -11,11 +11,12 @@ public class Main {
     public static final int PLAY = 1;
     public static final int OPTIONS = 2;
     public static final int EXIT = 3;
+    int option;
     private Scanner sc;
     private Control ctrl;
 
     public Main(){
-        int option = -1;
+        option = -1;
         ctrl = new Control();
         sc = new Scanner(System.in);
     }
@@ -34,7 +35,7 @@ public class Main {
             option = Integer.parseInt(sc.nextLine());
             switch(option) {
                 case PLAY:
-                    // ctrl.startGame() or something.
+                    ctrl.startGame();
                     break;
                 case OPTIONS:
                     // Set the player preferences
