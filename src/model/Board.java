@@ -3,27 +3,37 @@ package model;
 /**
  * Created by hell on 26/08/14.
  */
-public class Board implements IBoard{
+public class Board implements IBoard {
 
     //Fields
-    Cell board [][];
+    Cell board[][];
+
     //Constructor
     public Board() {
         //Cell board [][] = new Cell[8][8];
-        for (int i=0;i>8;i++){
-            for (int j=0;j<8;j++){
-                if(i == 0 || i == 7){
-                    if(j == 0 || j == 7) board[i][j]= new Cell(i,j,Cell.CellState.ROOK, null);
-                    else if(j == 1 || j == 6) board[i][j]= new Cell(i,j,Cell.CellState.KNIGHT, null);
-                    else if(j == 2 || j == 5) board[i][j]= new Cell(i,j,Cell.CellState.BISHOP, null);
-                    else if(j == 3) board[i][j]= new Cell(i,j,Cell.CellState.QUEEN, null);
-                    else board[i][j]= new Cell(i,j,Cell.CellState.KING, null);
+        for (int i = 0; i > 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (i == 0) {
+                    if (j == 0 || j == 7) board[i][j] = new Cell(i, j, Cell.CellState.ROOK, null,Cell.ColorPiece.BLACK);
+                    else if (j == 1 || j == 6) board[i][j] = new Cell(i, j, Cell.CellState.KNIGHT, null,Cell.ColorPiece.BLACK);
+                    else if (j == 2 || j == 5) board[i][j] = new Cell(i, j, Cell.CellState.BISHOP, null,Cell.ColorPiece.BLACK);
+                    else if (j == 3) board[i][j] = new Cell(i, j, Cell.CellState.QUEEN, null,Cell.ColorPiece.BLACK);
+                    else board[i][j] = new Cell(i, j, Cell.CellState.KING, null,Cell.ColorPiece.BLACK);
+                } else if (i == 1) {
+                    board[i][j] = new Cell(i, j, Cell.CellState.PAWN, null,Cell.ColorPiece.BLACK);
+                } else {
+                    board[i][j] = new Cell(i, j, Cell.CellState.NULL, null,Cell.ColorPiece.BLACK);
                 }
-                else if(i == 1 || i == 6){
-                    board[i][j]= new Cell(i,j,Cell.CellState.PAWN, null);
-                }
-                else{
-                    board[i][j]= new Cell(i,j,Cell.CellState.NULL, null);
+                if (i == 7) {
+                    if (j == 0 || j == 7) board[i][j] = new Cell(i, j, Cell.CellState.ROOK, null,Cell.ColorPiece.WHITE);
+                    else if (j == 1 || j == 6) board[i][j] = new Cell(i, j, Cell.CellState.KNIGHT, null,Cell.ColorPiece.WHITE);
+                    else if (j == 2 || j == 5) board[i][j] = new Cell(i, j, Cell.CellState.BISHOP, null,Cell.ColorPiece.WHITE);
+                    else if (j == 3) board[i][j] = new Cell(i, j, Cell.CellState.QUEEN, null,Cell.ColorPiece.WHITE);
+                    else board[i][j] = new Cell(i, j, Cell.CellState.KING, null,Cell.ColorPiece.WHITE);
+                } else if (i == 6) {
+                    board[i][j] = new Cell(i, j, Cell.CellState.PAWN, null,Cell.ColorPiece.WHITE);
+                } else {
+                    board[i][j] = new Cell(i, j, Cell.CellState.NULL, null,Cell.ColorPiece.WHITE);
                 }
             }
         }
@@ -45,11 +55,11 @@ public class Board implements IBoard{
 
     @Override
     public boolean damageCell(int index) {
-        return damageCell(index/8, index%8);
+        return damageCell(index / 8, index % 8); // i,j
     }
 
     @Override
     public boolean damageCell(int i, int j) {
-        return false;
+        return damageCell ((8*i)+j); //index
     }
 }

@@ -6,6 +6,7 @@ package model;
 public class Cell implements ICell{
 
     public static enum CellState {NULL, ROOK, KNIGHT, BISHOP, QUEEN, KING, PAWN};
+    public static enum ColorPiece {BLACK, WHITE};
 
     //Fields
     private int i;
@@ -13,14 +14,42 @@ public class Cell implements ICell{
     //String status;
     private Cell.CellState status;
     private boolean isCrownCell;
+
+    public boolean isCrownCell() {
+        return isCrownCell;
+    }
+
+    public void setCrownCell(boolean isCrownCell) {
+        this.isCrownCell = isCrownCell;
+    }
+
+    public boolean isMoveCell() {
+        return isMoveCell;
+    }
+
+    public void setMoveCell(boolean isMoveCell) {
+        this.isMoveCell = isMoveCell;
+    }
+
     private boolean isMoveCell;
     private Class<? extends Piece> p;
+    private Cell.ColorPiece colorpiece;
+
+    public ColorPiece getColorpiece() {
+        return colorpiece;
+    }
+
+    public void setColorpiece(ColorPiece colorpiece) {
+        this.colorpiece = colorpiece;
+    }
+
     //Constructor
-    public Cell(int x, int y, Cell.CellState initStatus, Class<? extends Piece> piece) {
+    public Cell(int x, int y, Cell.CellState initStatus, Class<? extends Piece> piece, Cell.ColorPiece color) {
         i=x;
         j=y;
         status=initStatus;
         this.p = piece;
+        colorpiece = color;
     }
     //Getters and setters
     public int getI() {
