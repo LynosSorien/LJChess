@@ -11,12 +11,11 @@ public class Main {
     public static final int PLAY = 1;
     public static final int OPTIONS = 2;
     public static final int EXIT = 3;
-    int option;
+    private int option;
     private Scanner sc;
     private Control ctrl;
 
     public Main(){
-        option = -1;
         ctrl = new Control();
         sc = new Scanner(System.in);
     }
