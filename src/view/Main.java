@@ -47,7 +47,7 @@ public class Main {
         System.out.println("Thanks for playing!");
     }
 
-    public void main (String[] args){
+    public static void main (String[] args){
         new Main().start();
     }
 }
