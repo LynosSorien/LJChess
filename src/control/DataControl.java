@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class DataControl {
     private Board board;
-    private List white;
-    private List black;
+    private List<P extends Piece> white;
+    private List<P extends Piece> black;
 
     public DataControl(){
         this.board = new Board();
