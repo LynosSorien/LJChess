@@ -6,22 +6,21 @@ import java.util.ArrayList;
  * Created by hell on 26/08/14.
  */
 public class Pawn extends Piece {
-    MoveCell start;
-    int row = cellused.getI();
-    int col = cellused.getJ();
-    Vector posibleMove = new Vector(row,col);
+    private MoveCell start;
+    private int row = cellused.getI();
+    private int col = cellused.getJ();
     public Pawn(ColorPiece color){
         super(color);
     }
     @Override
     public void pieceMovements() {
         if (color.equals(ColorPiece.BLACK)){
-            listPosibleMoves.add(posibleMove.setX(row+1));
-            if (start.pawnStartMove())listPosibleMoves.add(posibleMove.setX(row+2));
+            listPosibleMoves.add(new Vector(row+1,col));
+            if (start.pawnStartMove())listPosibleMoves.add(new Vector(row+2,col));
         }
         else {
-            listPosibleMoves.add(posibleMove.setX(row-1));
-            if (start.pawnStartMove())listPosibleMoves.add(posibleMove.setX(row-2));
+            listPosibleMoves.add(new Vector(row-1,col));
+            if (start.pawnStartMove())listPosibleMoves.add(new Vector(row-2,col));
         }
     }
 
