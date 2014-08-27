@@ -11,6 +11,7 @@ import model.Board;
 public class GameControl extends Thread{
 
     private enum VictoryConditions {WIN,LOSE,DRAW,NONE}
+    private enum Turn {WHITE,BLACK}
 
     public GameControl(){
 
@@ -20,4 +21,6 @@ public class GameControl extends Thread{
     public void run(){
 
     }
+
+
 }

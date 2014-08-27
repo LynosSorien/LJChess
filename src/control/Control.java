@@ -11,4 +11,16 @@ public class Control {
         this.gameControl = new GameControl();
         this.dataControl = new DataControl();
     }
+
+    /*
+        GAMECONTROL METHODS
+     */
+
+    public void startGame(){
+        this.gameControl.start();
+    }
+
+    /*
+        DATACONTROL METHODS
+     */
 }
