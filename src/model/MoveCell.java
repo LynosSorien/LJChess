@@ -2,6 +2,7 @@ package model;
 
 /**
  * Created by hell on 26/08/14.
+ * NOT USED
  */
 public class MoveCell extends Cell{
     private Board board;
