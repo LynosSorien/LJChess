@@ -6,10 +6,11 @@ package control;
 public class Control {
     private GameControl gameControl;
     private DataControl dataControl;
+    private Main main;
 
     public Control (){
         this.dataControl = new DataControl();
-        this.gameControl = new GameControl(this.dataControl);
+        this.gameControl = new GameControl(this.dataControl, this.main);
     }
 
     /*

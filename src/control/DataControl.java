@@ -1,7 +1,9 @@
 package control;
 
 import model.Board;
+import model.IBoard;
 import model.Piece;
+import model.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.List;
  * Created by david on 26/08/14.
  */
 public class DataControl {
-    private Board board;
+    private IBoard board;
     private Player player1;
     private Player player2;
     private List<? extends Piece> white;
@@ -22,7 +24,7 @@ public class DataControl {
         this.black = new ArrayList<Piece>();
     }
 
-    public Board getBoard(){
+    public IBoard getBoard(){
         return this.board;
     }
 
