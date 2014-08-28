@@ -13,7 +13,7 @@ public class Player {
         @Override
         public String toString() {
             String toReturn = new String("Dead Pieces: ");
-            for (int i = 0; i<this.size()i++) {
+            for (int i = 0; i<this.size();i++) {
                 toReturn += this.get(i).toString()+" | ";
             }
             return toReturn;
