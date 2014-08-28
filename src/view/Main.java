@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Created by juanma on 27/08/14.
  */
-public class Main {
+public class Main implements IMain {
     public static final int PLAY = 1;
     public static final int OPTIONS = 2;
     public static final int EXIT = 3;
@@ -49,5 +49,30 @@ public class Main {
 
     public static void main (String[] args){
         new Main().start();
+    }
+
+    @Override
+    public int selectPieceRow() {
+        int row;
+        do {
+            System.out.println("Choose the row of the chosen piece");
+            row = Integer.parseInt(sc.nextLine());
+        }while(row<0 || row>7);
+        return row;
+    }
+
+    @Override
+    public int selectPieceColumn() {
+        int row;
+        do {
+            System.out.println("Choose the row of the chosen piece");
+            row = Integer.parseInt(sc.nextLine());
+        }while(row<0 || row>7);
+        return row;
+    }
+
+    @Override
+    public void setMovement() {
+
     }
 }
