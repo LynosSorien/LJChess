@@ -1,5 +1,6 @@
 package control;
 
+import view.IMain;
 import view.Main;
 
 /**
@@ -8,9 +9,10 @@ import view.Main;
 public class Control {
     private GameControl gameControl;
     private DataControl dataControl;
-    private Main main;
+    private IMain main;
 
-    public Control (){
+    public Control (IMain m){
+        this.main = m;
         this.dataControl = new DataControl();
         this.gameControl = new GameControl(this.dataControl, this.main);
     }
