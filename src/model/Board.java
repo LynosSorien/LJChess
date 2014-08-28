@@ -50,7 +50,7 @@ public class Board implements IBoard {
     //Interface Methods
     @Override
     public Cell getCell(int x, int y) {
-        Cell[][] board=getBoard();
+        //Cell[][] board=getBoard();
         return board[x][y];
     }
 
