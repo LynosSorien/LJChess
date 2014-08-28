@@ -1,5 +1,7 @@
 package control;
 
+import view.Main;
+
 /**
  * Created by david on 26/08/14.
  */
@@ -7,13 +9,8 @@ public class GameControl extends Thread{
     private enum Turn {WHITE,BLACK}
     private enum VictoryConditions {WIN,LOSE,DRAW, PLAY}
 
-<<<<<<< HEAD
     private Turn turn;
     private VictoryConditions state;
-=======
-    private enum VictoryConditions {WIN,LOSE,DRAW,NONE}
-    private enum Turn {WHITE,BLACK}
->>>>>>> view
 
     private DataControl dataControl;
     private Main main;

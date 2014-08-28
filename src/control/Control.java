@@ -1,5 +1,7 @@
 package control;
 
+import view.Main;
+
 /**
  * Created by david on 26/08/14.
  */
@@ -35,16 +37,4 @@ public class Control {
     public void setPlayerName(int i, String name){
         this.dataControl.setPlayerName(i,name);
     }
-
-    /*
-        GAMECONTROL METHODS
-     */
-
-    public void startGame(){
-        this.gameControl.start();
-    }
-
-    /*
-        DATACONTROL METHODS
-     */
 }
