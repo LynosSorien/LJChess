@@ -9,7 +9,16 @@ public class Player {
     String name;
     Piece.ColorPiece color;
     int score; // por implementar
-    ArrayList<Piece> deadPieces = new ArrayList<Piece>();
+    ArrayList<Piece> deadPieces = new ArrayList<Piece>() {
+        @Override
+        public String toString() {
+            String toReturn = new String("Dead Pieces: ");
+            for (int i = 0; i<this.size()i++) {
+                toReturn += this.get(i).toString()+" | ";
+            }
+            return toReturn;
+        }
+    };
     public Player(String name, Piece.ColorPiece color) {
         this.name = name;
         this.color = color;
