@@ -35,4 +35,16 @@ public class Control {
     public void setPlayerName(int i, String name){
         this.dataControl.setPlayerName(i,name);
     }
+
+    /*
+        GAMECONTROL METHODS
+     */
+
+    public void startGame(){
+        this.gameControl.start();
+    }
+
+    /*
+        DATACONTROL METHODS
+     */
 }

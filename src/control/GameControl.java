@@ -7,8 +7,13 @@ public class GameControl extends Thread{
     private enum Turn {WHITE,BLACK}
     private enum VictoryConditions {WIN,LOSE,DRAW, PLAY}
 
+<<<<<<< HEAD
     private Turn turn;
     private VictoryConditions state;
+=======
+    private enum VictoryConditions {WIN,LOSE,DRAW,NONE}
+    private enum Turn {WHITE,BLACK}
+>>>>>>> view
 
     private DataControl dataControl;
     private Main main;
@@ -39,4 +44,6 @@ public class GameControl extends Thread{
         }while (this.state == VictoryConditions.PLAY);
         System.out.println("Game ended.");
     }
+
+
 }
