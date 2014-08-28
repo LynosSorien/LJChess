@@ -11,14 +11,14 @@ public class Cell implements ICell{
     private int i;
     private int j;
     private Cell.CellState status;
-    private Piece p;
+    private Piece piece;
 
     //Constructor
     public Cell(int x, int y, Cell.CellState initStatus, Piece piece) {
         i=x;
         j=y;
         status=initStatus;
-        this.p = piece;
+        this.piece = piece;
     }
     //Getters and setters
     public int getI() {
@@ -45,8 +45,8 @@ public class Cell implements ICell{
         this.status = status;
     }
 
-    public void setP(Piece p) {
-        this.p = p;
+    public void setPiece(Piece p) {
+        this.piece = p;
     }
 
     // Interface methods
@@ -57,7 +57,7 @@ public class Cell implements ICell{
 
     @Override
     public Piece getPiece() {
-        return p;
+        return piece;
     }
 
     @Override

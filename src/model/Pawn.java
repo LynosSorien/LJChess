@@ -71,7 +71,7 @@ public class Pawn extends Piece {
         boolean checkIfCrown;
         firstTurn=false;
         actualCell.setStatus(Cell.CellState.NULL);
-        actualCell.setP(null);
+        actualCell.setPiece(null);
         actualCell=map.getCell(x,y);
         //comprobar si ay enemigos y matar
         if (actualCell.getStatus() != Cell.CellState.NULL){
@@ -80,7 +80,7 @@ public class Pawn extends Piece {
         //comprobar si esta en CrownCell
         //sino se mueve
         actualCell.setStatus(Cell.CellState.PAWN);
-        actualCell.setP(this);//?????????????
+        actualCell.setPiece(this);
 
     }
 }

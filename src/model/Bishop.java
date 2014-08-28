@@ -56,7 +56,7 @@ public class Bishop extends Piece{
     public void movePiece(int x, int y) {
         firstTurn=false;
         actualCell.setStatus(Cell.CellState.NULL);
-        actualCell.setP(null);
+        actualCell.setPiece(null);
         actualCell=map.getCell(x,y);
         //comprobar si ay enemigos y matar
         if (actualCell.getStatus() != Cell.CellState.NULL){
@@ -64,7 +64,7 @@ public class Bishop extends Piece{
         }
         //sino se mueve
         actualCell.setStatus(Cell.CellState.BISHOP);
-        actualCell.setP(this);//?????????????
+        actualCell.setPiece(this);
 
     }
     private void rightDownDiagonal (ArrayList<Vector> listPosibleMoves, int x, int y,Cell nextCell, Board map){
