@@ -11,6 +11,10 @@ public class Main implements IMain {
     public static final int PLAY = 1;
     public static final int OPTIONS = 2;
     public static final int EXIT = 3;
+
+    public static final int NAME1 = 1;
+    public static final int NAME2 = 2;
+
     private int option;
     private Scanner sc;
     private Control ctrl;
@@ -27,6 +31,33 @@ public class Main implements IMain {
         System.out.println(EXIT+". Exit");
         System.out.println("###################################");
     }
+
+    public void printOptionMenu(){
+        System.out.println("############# OPTIONS #############");
+        System.out.println(NAME1+". Change player1 name's");
+        System.out.println(NAME2+". Change player2 name's");
+        System.out.println(EXIT+". Exit");
+        System.out.println("###################################");
+    }
+
+    public void option(){
+        do{
+            printOptionMenu();
+            option = Integer.parseInt(sc.nextLine());
+            System.out.println("Write the name of the player");
+            String name = sc.nextLine();
+            switch(option){
+                case NAME1:
+                    ctrl.setPlayerName(NAME1,name);
+                    break;
+                case NAME2:
+                    ctrl.setPlayerName(NAME2,name);
+                    break;
+                default:
+                    System.out.println("Incorrect option");
+            }
+        }while (option!=EXIT);
+    }
     
     public void start() {
         do {
@@ -37,8 +68,7 @@ public class Main implements IMain {
                     ctrl.startGame();
                     break;
                 case OPTIONS:
-                    // Set the player preferences
-                    // Player name ....
+                    option();
                     break;
                 case EXIT:break;
                 default:System.out.println("Incorrect Option");
