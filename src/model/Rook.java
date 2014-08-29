@@ -11,7 +11,7 @@ public class Rook extends Piece{
     }
 
     @Override
-    public void pieceMovements() {
+    public void pieceMovements(Board map) {
         map.getBoard();
         int row = actualCell.getI();
         int col = actualCell.getJ();

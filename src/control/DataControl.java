@@ -24,8 +24,8 @@ public class DataControl {
         this.black = new ArrayList<Piece>();
     }
 
-    public IBoard getBoard(){
-        return this.board;
+    public Board getBoard(){
+        return (Board)this.board;
     }
 
     public void setPlayerName(int i, String name){

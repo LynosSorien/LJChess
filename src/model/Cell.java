@@ -46,6 +46,7 @@ public class Cell implements ICell{
     }
 
     public void setPiece(Piece p) {
+
         this.piece = p;
     }
 
@@ -61,7 +62,22 @@ public class Cell implements ICell{
     }
 
     @Override
-    public boolean isOccupied() {
-        return false;
+    public boolean isOccupied() {return (getStatus().equals(CellState.NULL)) ? false : true; }
+
+    @Override
+    public String toString() {
+        String print = new String("");
+        print = " *";
+        if (isOccupied()) {
+            if (Piece.ColorPiece.BLACK.equals(piece.getColor())) print="B";
+            else print = "W";
+            if (piece instanceof Pawn) print+="P";
+            else if (piece instanceof Rook) print+="R";
+            else if (piece instanceof Knight) print+="H";
+            else if (piece instanceof King) print+="K";
+            else if (piece instanceof Bishop) print +="B";
+            else if (piece instanceof Queen) print += "Q";
+        }
+        return print;
     }
 }

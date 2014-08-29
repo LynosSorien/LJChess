@@ -1,6 +1,10 @@
 package control;
 
+import model.Piece;
+import model.Vector;
 import view.IMain;
+
+import java.util.List;
 
 /**
  * Created by david on 26/08/14.
@@ -31,15 +35,19 @@ public class GameControl extends Thread{
                 row = 0; column = 0;
                 row = main.selectPieceRow();
                 column = main.selectPieceColumn();
-                this.dataControl.getBoard().getCell(row,column).getPiece().pieceMovements();
-                main.setMovement();
+                Piece p = this.dataControl.getBoard().getCell(row, column).getPiece();
+                p.pieceMovements(dataControl.getBoard());
+                List<Vector> pieceMovements = p.getPosibleMoves();
+                main.setMovement(pieceMovements,p);
                 this.turn = Turn.BLACK;
             }else if (this.turn == Turn.BLACK){
                 row = 0; column = 0;
                 row = main.selectPieceRow();
                 column = main.selectPieceColumn();
-                this.dataControl.getBoard().getCell(row,column).getPiece().pieceMovements();
-                main.setMovement();
+                Piece p = this.dataControl.getBoard().getCell(row, column).getPiece();
+                p.pieceMovements(dataControl.getBoard());
+                List<Vector> pieceMovements = p.getPosibleMoves();
+                main.setMovement(pieceMovements,p);
                 this.turn = turn.WHITE;
             }
         }while (this.state == VictoryConditions.PLAY);

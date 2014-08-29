@@ -9,13 +9,15 @@ import java.util.ArrayList;
  * Created by hell on 26/08/14.
  */
 public class Pawn extends Piece {
-    private int row = actualCell.getI();
-    private int col = actualCell.getJ();
+    private int row;
+    private int col;
     public Pawn(ColorPiece color){
         super(color);
     }
     @Override
-    public void pieceMovements() {
+    public void pieceMovements(Board map) {
+        row = actualCell.getI();
+        col = actualCell.getJ();
         map.getBoard();
         //start = objective.getCell();
         if (color.equals(ColorPiece.BLACK)){

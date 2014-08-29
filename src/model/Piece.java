@@ -7,18 +7,27 @@ import model.Board;
  */
 public abstract class Piece {
     public static enum ColorPiece {BLACK,WHITE};
-    ColorPiece color;
-    Cell actualCell;
-    Board map;
-    Cell nextCell;
-    Player p;
-    public boolean firstTurn=true;
-    ArrayList<Vector> listPosibleMoves = new ArrayList<Vector>();
-    public abstract void pieceMovements();
+    protected ColorPiece color;
+    protected Cell actualCell;
+    protected Board map;
+    protected Cell nextCell;
+    protected Player p;
+    protected boolean firstTurn=true;
+    protected ArrayList<Vector> listPosibleMoves = new ArrayList<Vector>() {
+        @Override
+        public String toString() {
+            String print = new String("");
+            for(int i = 0; i<size();i++)
+                print+=get(i);
+            return print;
+        }
+    };
+    public abstract void pieceMovements(Board map);
     public abstract ArrayList getPosibleMoves();
     public abstract void movePiece(int x, int y);
     public Piece(ColorPiece color){
         this.color = color;
     }
-
+    public <C extends Cell> C setActualCell(C cell) {this.actualCell = cell; return (C)actualCell;}
+    public ColorPiece getColor() {return color;}
 }

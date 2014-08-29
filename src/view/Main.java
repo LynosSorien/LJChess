@@ -2,7 +2,10 @@ package view;
 
 import control.Control;
 import model.Pawn;
+import model.Piece;
+import model.Vector;
 
+import java.util.List;
 import java.util.Scanner;
 
 import static view.IMain.PieceType.ROOK;
@@ -123,8 +126,8 @@ public class Main implements IMain {
     }
 
     @Override
-    public void setMovement() {
-
+    public <P extends Piece> void setMovement(List<Vector> possibleMoves, P piece) {
+        System.out.println(possibleMoves);
     }
 
     @Override

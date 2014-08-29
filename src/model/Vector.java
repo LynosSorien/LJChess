@@ -30,4 +30,8 @@ public class Vector {
     this.y = y;
     return this;
   }
+    @Override
+    public String toString() {
+        return "<"+x+","+y+">";
+    }
 }
