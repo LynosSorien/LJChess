@@ -45,9 +45,11 @@ public class GameControl extends Thread{
                 row = main.selectPieceRow();
                 column = main.selectPieceColumn();
                 Piece p = this.dataControl.getBoard().getCell(row, column).getPiece();
-                p.pieceMovements(dataControl.getBoard());
-                List<Vector> pieceMovements = p.getPosibleMoves();
-                main.setMovement(pieceMovements,p);
+                if(p!=null) {
+                    p.pieceMovements(dataControl.getBoard());
+                    List<Vector> pieceMovements = p.getPosibleMoves();
+                    main.setMovement(pieceMovements,p);
+                }
                 this.turn = turn.WHITE;
             }
         }while (this.state == VictoryConditions.PLAY);
