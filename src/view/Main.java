@@ -23,7 +23,7 @@ public class Main implements IMain {
     private Control ctrl;
 
     public Main(){
-        ctrl = new Control();
+        ctrl = new Control(this);
         sc = new Scanner(System.in);
         LJChessInstance.instance().addListener((IMain)this);
     }
