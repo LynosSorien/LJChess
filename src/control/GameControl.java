@@ -26,7 +26,7 @@ public class GameControl extends Thread{
     public void run(){
         int row,column;
         do {
-            this.dataControl.getBoard().toString();
+            System.out.println(this.dataControl.getBoard());
             if (this.turn == Turn.WHITE){
                 row = 0; column = 0;
                 row = main.selectPieceRow();

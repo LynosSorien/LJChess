@@ -14,6 +14,7 @@ public class Main implements IMain {
     public static final int PLAY = 1;
     public static final int OPTIONS = 2;
     public static final int EXIT = 3;
+    public static final int MENU = 0;
 
     public static final int NAME1 = 1;
     public static final int NAME2 = 2;
@@ -23,11 +24,13 @@ public class Main implements IMain {
 
     private int option;
     private Scanner sc;
+    private Scanner select;
     private Control ctrl;
 
     public Main(){
         ctrl = new Control(this);
         sc = new Scanner(System.in);
+        select = new Scanner(System.in);
         LJChessInstance.instance().addListener((IMain)this);
     }
 
@@ -71,18 +74,24 @@ public class Main implements IMain {
     }
     
     public void start() {
+        option = MENU;
         do {
-            printMenu();
-            option = Integer.parseInt(sc.nextLine());
-            switch(option) {
-                case PLAY:
-                    ctrl.startGame();
-                    break;
-                case OPTIONS:
-                    option();
-                    break;
-                case EXIT:break;
-                default:System.out.println("Incorrect Option");
+            if (option==MENU) {
+                printMenu();
+                option = Integer.parseInt(sc.nextLine());
+                sc.reset();
+                switch (option) {
+                    case PLAY:
+                        ctrl.startGame();
+                        break;
+                    case OPTIONS:
+                        option();
+                        break;
+                    case EXIT:
+                        break;
+                    default:
+                        System.out.println("Incorrect Option");
+                }
             }
         } while(option!=EXIT);
         System.out.println("Thanks for playing!");
@@ -98,18 +107,19 @@ public class Main implements IMain {
         do {
             System.out.println("Choose the row of the chosen piece");
             row = Integer.parseInt(sc.nextLine());
+            System.out.println("Chosen row: "+row);
         }while(row<0 || row>7);
         return row;
     }
 
     @Override
     public int selectPieceColumn() {
-        int row;
+        int col;
         do {
-            System.out.println("Choose the row of the chosen piece");
-            row = Integer.parseInt(sc.nextLine());
-        }while(row<0 || row>7);
-        return row;
+            System.out.println("Choose the column of the chosen piece");
+            col = Integer.parseInt(sc.nextLine());
+        }while(col<0 || col>7);
+        return col;
     }
 
     @Override
