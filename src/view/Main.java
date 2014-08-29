@@ -17,13 +17,19 @@ public class Main implements IMain {
 
     public static final int NAME1 = 1;
     public static final int NAME2 = 2;
+    public static final int RETURN = 0;
+
+    private static final int KNIGHT = 0;
+    private static final int BISHOP = 1;
+    private static final int ROOK = 2;
+    private static final int QUEEN = 3;
 
     private int option;
     private Scanner sc;
     private Control ctrl;
 
     public Main(){
-        ctrl = new Control();
+        ctrl = new Control(this);
         sc = new Scanner(System.in);
         LJChessInstance.instance().addListener((IMain)this);
     }
@@ -40,7 +46,7 @@ public class Main implements IMain {
         System.out.println("############# OPTIONS #############");
         System.out.println(NAME1+". Change player1 name's");
         System.out.println(NAME2+". Change player2 name's");
-        System.out.println(EXIT+". Exit");
+        System.out.println(RETURN+". Exit");
         System.out.println("###################################");
     }
 
@@ -48,19 +54,23 @@ public class Main implements IMain {
         do{
             printOptionMenu();
             option = Integer.parseInt(sc.nextLine());
-            System.out.println("Write the name of the player");
-            String name = sc.nextLine();
+            String name;
             switch(option){
                 case NAME1:
+                    System.out.println("Write the name of the player");
+                    name = sc.nextLine();
                     ctrl.setPlayerName(NAME1,name);
                     break;
                 case NAME2:
+                    System.out.println("Write the name of the player");
+                    name = sc.nextLine();
                     ctrl.setPlayerName(NAME2,name);
                     break;
+                case RETURN:  break;
                 default:
                     System.out.println("Incorrect option");
             }
-        }while (option!=EXIT);
+        }while (option!=RETURN);
     }
     
     public void start() {
@@ -115,7 +125,7 @@ public class Main implements IMain {
         PieceType pt;
         int choice;
         System.out.println("Choose piece to crown");
-        System.out.println("0 - Knight\n1 - Bishop\n2 - Rook\n3 - Queen");
+        System.out.println(KNIGHT+" - Knight\n"+BISHOP+" - Bishop\n"+ROOK+"- Rook\n"+QUEEN+" - Queen");
         choice = Integer.parseInt(sc.nextLine());
         switch(choice) {
             case 0:
@@ -135,5 +145,14 @@ public class Main implements IMain {
                 break;
         }
         return pt;
+    }
+
+    @Override
+    public int getValueOf(PieceType pt) {
+        if (pt.equals(PieceType.KNIGHT)) return KNIGHT;
+        if (pt.equals(PieceType.BISHOP)) return BISHOP;
+        if (pt.equals(PieceType.ROOK)) return ROOK;
+        if (pt.equals(PieceType.QUEEN)) return QUEEN;
+        return -1;
     }
 }
