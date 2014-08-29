@@ -26,7 +26,7 @@ public class GameControl extends Thread{
     public void run(){
         int row,column;
         do {
-            this.dataControl.getBoard().toString();
+            System.out.println(this.dataControl.getBoard());
             if (this.turn == Turn.WHITE){
                 row = 0; column = 0;
                 row = main.selectPieceRow();
@@ -38,7 +38,7 @@ public class GameControl extends Thread{
                 row = 0; column = 0;
                 row = main.selectPieceRow();
                 column = main.selectPieceColumn();
-                this.dataControl.getBoard().getCell().getPiece().pieceMovements();
+                this.dataControl.getBoard().getCell(row,column).getPiece().pieceMovements();
                 main.setMovement();
                 this.turn = turn.WHITE;
             }
