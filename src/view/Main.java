@@ -1,8 +1,11 @@
 package view;
 
 import control.Control;
+import model.Pawn;
 
 import java.util.Scanner;
+
+import static view.IMain.PieceType.ROOK;
 
 /**
  * Created by juanma on 27/08/14.
@@ -22,6 +25,7 @@ public class Main implements IMain {
     public Main(){
         ctrl = new Control();
         sc = new Scanner(System.in);
+        LJChessInstance.instance().addListener((IMain)this);
     }
 
     public void printMenu(){
@@ -104,5 +108,32 @@ public class Main implements IMain {
     @Override
     public void setMovement() {
 
+    }
+
+    @Override
+    public PieceType crownPawn(Pawn p) {
+        PieceType pt;
+        int choice;
+        System.out.println("Choose piece to crown");
+        System.out.println("0 - Knight\n1 - Bishop\n2 - Rook\n3 - Queen");
+        choice = Integer.parseInt(sc.nextLine());
+        switch(choice) {
+            case 0:
+                pt = PieceType.KNIGHT;
+                break;
+            case 1:
+                pt = PieceType.BISHOP;
+                break;
+            case 2:
+                pt = PieceType.ROOK;
+                break;
+            case 3:
+                pt = PieceType.QUEEN;
+                break;
+            default:
+                pt = PieceType.NONE;
+                break;
+        }
+        return pt;
     }
 }
