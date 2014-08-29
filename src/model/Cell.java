@@ -10,17 +10,15 @@ public class Cell implements ICell{
     //Fields
     private int i;
     private int j;
-    //String status;
     private Cell.CellState status;
-    private boolean isCrownCell;
-    private boolean isMoveCell;
-    private Class<? extends Piece> p;
+    private Piece piece;
+
     //Constructor
-    public Cell(int x, int y, Cell.CellState initStatus, Class<? extends Piece> piece) {
+    public Cell(int x, int y, Cell.CellState initStatus, Piece piece) {
         i=x;
         j=y;
         status=initStatus;
-        this.p = piece;
+        this.piece = piece;
     }
     //Getters and setters
     public int getI() {
@@ -47,6 +45,10 @@ public class Cell implements ICell{
         this.status = status;
     }
 
+    public void setPiece(Piece p) {
+        this.piece = p;
+    }
+
     // Interface methods
     @Override
     public boolean damageCell() {
@@ -55,7 +57,7 @@ public class Cell implements ICell{
 
     @Override
     public Piece getPiece() {
-        return null;
+        return piece;
     }
 
     @Override
