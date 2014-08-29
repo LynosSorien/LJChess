@@ -1,5 +1,6 @@
 package view;
 
+<<<<<<< HEAD
 import model.Pawn;
 
 /**
@@ -12,3 +13,10 @@ public interface IMain {
     public void setMovement();
     public PieceType crownPawn(Pawn p);
 }
+=======
+/**
+ * Created by juanma on 28/08/14.
+ */
+public class IMain {
+}
+>>>>>>> control
