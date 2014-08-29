@@ -38,7 +38,7 @@ public class GameControl extends Thread{
                 row = 0; column = 0;
                 row = main.selectPieceRow();
                 column = main.selectPieceColumn();
-                this.dataControl.getBoard().getCell().getPiece().pieceMovements();
+                this.dataControl.getBoard().getCell(row,column).getPiece().pieceMovements();
                 main.setMovement();
                 this.turn = turn.WHITE;
             }

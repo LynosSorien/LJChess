@@ -1,5 +1,8 @@
 package model;
 
+import view.IMain;
+import view.LJChessInstance;
+
 import java.util.ArrayList;
 
 /**
@@ -78,9 +81,63 @@ public class Pawn extends Piece {
             p.deadPieces.add(actualCell.getPiece());
         }
         //comprobar si esta en CrownCell
-        //sino se mueve
-        actualCell.setStatus(Cell.CellState.PAWN);
-        actualCell.setPiece(this);
+        if (x==0){
+            IMain.PieceType pt = LJChessInstance.instance().getMainListener().crownPawn(this);
+            switch (LJChessInstance.instance().getMainListener().getValueOf(pt)){
+                case IMain.ROOK:
+                    actualCell.setStatus(Cell.CellState.ROOK);
+                    actualCell.setPiece(new Rook(ColorPiece.WHITE));
+                    break;
+                case IMain.BISHOP:
+                    actualCell.setStatus(Cell.CellState.BISHOP);
+                    actualCell.setPiece(new Bishop(ColorPiece.WHITE));
+                    break;
+                case IMain.KNIGHT:
+                    actualCell.setStatus(Cell.CellState.KNIGHT);
+                    actualCell.setPiece(new Knight(ColorPiece.WHITE));
+                    break;
+                case IMain.QUEEN:
+                    actualCell.setStatus(Cell.CellState.QUEEN);
+                    actualCell.setPiece(new Queen(ColorPiece.WHITE));
+                    break;
+                default:
+                    break;
+            }
 
+
+        }
+        else if (x==7){
+            IMain.PieceType pt = LJChessInstance.instance().getMainListener().crownPawn(this);
+            switch (LJChessInstance.instance().getMainListener().getValueOf(pt)){
+                case IMain.ROOK:
+                    actualCell.setStatus(Cell.CellState.ROOK);
+                    actualCell.setPiece(new Rook(ColorPiece.BLACK));
+                    break;
+                case IMain.BISHOP:
+                    actualCell.setStatus(Cell.CellState.BISHOP);
+                    actualCell.setPiece(new Bishop(ColorPiece.BLACK));
+                    break;
+                case IMain.KNIGHT:
+                    actualCell.setStatus(Cell.CellState.KNIGHT);
+                    actualCell.setPiece(new Knight(ColorPiece.BLACK));
+                    break;
+                case IMain.QUEEN:
+                    actualCell.setStatus(Cell.CellState.QUEEN);
+                    actualCell.setPiece(new Queen(ColorPiece.BLACK));
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+
+        else {//sino se mueve
+            actualCell.setStatus(Cell.CellState.PAWN);
+            actualCell.setPiece(this);
+        }
     }
+
+
+
 }
