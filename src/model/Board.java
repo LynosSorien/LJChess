@@ -13,28 +13,24 @@ public class Board implements IBoard {
             for (int j = 0; j < 8; j++) {
                 //Black Pieces
                 if (i == 0) {
-                    if (j == 0 || j == 7) board[i][j] = new CrownCell(i, j, Cell.CellState.ROOK, null);
-                    else if (j == 1 || j == 6) board[i][j] = new CrownCell(i, j, Cell.CellState.KNIGHT, null);
-                    else if (j == 2 || j == 5) board[i][j] = new CrownCell(i, j, Cell.CellState.BISHOP, null);
-                    else if (j == 3) board[i][j] = new Cell(i, j, CrownCell.CellState.QUEEN, null);
-                    else board[i][j] = new CrownCell(i, j, Cell.CellState.KING, null);
-                } else if (i == 1) {
-                    board[i][j] = new Cell(i, j, Cell.CellState.PAWN, new Pawn(Piece.ColorPiece.BLACK));
-                } else {
-                    board[i][j] = new Cell(i, j, Cell.CellState.NULL, null);
+                    if (j == 0 || j == 7) board[i][j] = new CrownCell(i, j, Cell.CellState.ROOK, new Rook(Piece.ColorPiece.BLACK));
+                    else if (j == 1 || j == 6) board[i][j] = new CrownCell(i, j, Cell.CellState.KNIGHT, new Knight(Piece.ColorPiece.BLACK));
+                    else if (j == 2 || j == 5) board[i][j] = new CrownCell(i, j, Cell.CellState.BISHOP, new Bishop(Piece.ColorPiece.BLACK));
+                    else if (j == 3) board[i][j] = new Cell(i, j, CrownCell.CellState.QUEEN, new Queen(Piece.ColorPiece.BLACK));
+                    else board[i][j] = new CrownCell(i, j, Cell.CellState.KING, new King(Piece.ColorPiece.BLACK));
                 }
+                else if (i == 1) board[i][j] = new Cell(i, j, Cell.CellState.PAWN, new Pawn(Piece.ColorPiece.BLACK));
                 //White Pieces
-                if (i == 7) {
-                    if (j == 0 || j == 7) board[i][j] = new CrownCell(i, j, Cell.CellState.ROOK, null);
-                    else if (j == 1 || j == 6) board[i][j] = new CrownCell(i, j, Cell.CellState.KNIGHT, null);
-                    else if (j == 2 || j == 5) board[i][j] = new CrownCell(i, j, Cell.CellState.BISHOP, null);
-                    else if (j == 3) board[i][j] = new Cell(i, j, CrownCell.CellState.QUEEN, null);
-                    else board[i][j] = new CrownCell(i, j, Cell.CellState.KING, null);
-                } else if (i == 6) {
-                    board[i][j] = new Cell(i, j, Cell.CellState.PAWN, new Pawn(Piece.ColorPiece.WHITE));
-                } else {
-                    board[i][j] = new Cell(i, j, Cell.CellState.NULL, null);
+                else if (i == 7) {
+                    if (j == 0 || j == 7) board[i][j] = new CrownCell(i, j, Cell.CellState.ROOK, new Rook(Piece.ColorPiece.WHITE));
+                    else if (j == 1 || j == 6) board[i][j] = new CrownCell(i, j, Cell.CellState.KNIGHT, new Knight(Piece.ColorPiece.WHITE));
+                    else if (j == 2 || j == 5) board[i][j] = new CrownCell(i, j, Cell.CellState.BISHOP, new Bishop(Piece.ColorPiece.WHITE));
+                    else if (j == 3) board[i][j] = new Cell(i, j, CrownCell.CellState.QUEEN, new Queen(Piece.ColorPiece.WHITE));
+                    else board[i][j] = new CrownCell(i, j, Cell.CellState.KING, new King(Piece.ColorPiece.WHITE));
                 }
+                else if (i == 6) board[i][j] = new Cell(i, j, Cell.CellState.PAWN, new Pawn(Piece.ColorPiece.WHITE));
+                //Empty Pieces
+                else board[i][j] = new Cell(i, j, Cell.CellState.NULL, null);
             }
         }
     }
