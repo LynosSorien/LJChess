@@ -19,10 +19,7 @@ public class Main implements IMain {
     public static final int NAME2 = 2;
     public static final int RETURN = 0;
 
-    private static final int KNIGHT = 0;
-    private static final int BISHOP = 1;
-    private static final int ROOK = 2;
-    private static final int QUEEN = 3;
+
 
     private int option;
     private Scanner sc;
