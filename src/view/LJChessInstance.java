@@ -21,4 +21,8 @@ public final class LJChessInstance {
   public void addListener(Object listener) {
     if (listener instanceof IMain) this.main_listener = listener;
   }
+  
+  public IMain getMainListener() {
+    return main_listener;
+  }
 }
