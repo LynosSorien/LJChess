@@ -76,6 +76,7 @@ public class Pawn extends Piece {
         //comprobar si ay enemigos y matar
         if (actualCell.getStatus() != Cell.CellState.NULL){
             p.deadPieces.add(actualCell.getPiece());
+            p.removeAlivePiece(actualCell.getPiece());
         }
         //comprobar si esta en CrownCell
         if (x==0){

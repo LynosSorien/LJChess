@@ -93,6 +93,7 @@ public class Main implements IMain {
                     case EXIT:
                         break;
                     default:
+                        option = MENU;
                         System.out.println("Incorrect Option");
                 }
             }
@@ -126,7 +127,7 @@ public class Main implements IMain {
     }
 
     @Override
-    public <P extends Piece> void setMovement(List<Vector> possibleMoves, P piece) {
+    public <P extends Piece> boolean setMovement(List<Vector> possibleMoves, P piece) {
         int op,i;
         System.out.println(possibleMoves);
         for (i=0;i<possibleMoves.size();i++){
@@ -136,7 +137,9 @@ public class Main implements IMain {
         op = Integer.parseInt(sc.nextLine());
         if (op != possibleMoves.size()){
             ctrl.setMovement(possibleMoves.get(op),piece);
-        }
+            return true;
+        }else
+            return false;
     }
 
     @Override

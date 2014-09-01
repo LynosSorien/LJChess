@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Player {
     String name;
+    King king;
     Piece.ColorPiece color;
     int score; // por implementar
     ArrayList<Piece> deadPieces = new ArrayList<Piece>() {
@@ -19,10 +20,31 @@ public class Player {
             return toReturn;
         }
     };
-    public Player(String name, Piece.ColorPiece color) {
+    ArrayList<Piece> alivePieces = new ArrayList<Piece>() {
+        @Override
+        public String toString() {
+            String toReturn = new String("Alive Pieces: ");
+            for (int i = 0; i<this.size();i++) {
+                toReturn += this.get(i).toString()+" | ";
+            }
+            return toReturn;
+        }
+    };
+
+    public King getKing() {
+        return king;
+    }
+
+    public void setKing(King king) {
+        this.king = king;
+    }
+
+    public Player(String name, Piece.ColorPiece color, King king) {
         this.deadPieces = new ArrayList<Piece>();
+        this.king = king;
         this.name = name;
         this.color = color;
+        this.alivePieces = new ArrayList<Piece>();
     }
 
     public String getName() {
@@ -35,6 +57,18 @@ public class Player {
 
     public Piece.ColorPiece getColor() {
         return color;
+    }
+
+    public ArrayList<Piece> getAlivePieces() {
+        return alivePieces;
+    }
+
+    public void setAlivePieces(Piece p) {
+        this.alivePieces.add(p);
+    }
+
+    public void removeAlivePiece(Piece p){
+        this.alivePieces.remove(p);
     }
 
     public void setColor(Piece.ColorPiece color) {

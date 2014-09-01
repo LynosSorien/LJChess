@@ -56,6 +56,7 @@ public class Bishop extends Piece{
         //comprobar si ay enemigos y matar
         if (actualCell.getStatus() != Cell.CellState.NULL){
             p.deadPieces.add(actualCell.getPiece());
+            p.removeAlivePiece(actualCell.getPiece());
         }
         //sino se mueve
         actualCell.setStatus(Cell.CellState.BISHOP);

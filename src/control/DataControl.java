@@ -1,9 +1,6 @@
 package control;
 
-import model.Board;
-import model.IBoard;
-import model.Piece;
-import model.Player;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +19,18 @@ public class DataControl {
         this.board = new Board();
         this.white = new ArrayList<Piece>();
         this.black = new ArrayList<Piece>();
-        this.player1 = new Player("Itachi", Piece.ColorPiece.BLACK);
-        this.player2 = new Player("Madara", Piece.ColorPiece.WHITE);
+        this.player1 = new Player("Itachi", Piece.ColorPiece.BLACK,(King)this.board.getCell(0,4).getPiece());
+        for (int i=0;i<2;i++){
+            for (int j=0;j<8;j++){
+                this.player1.setAlivePieces(this.board.getCell(i,j).getPiece());
+            }
+        }
+        this.player2 = new Player("Madara", Piece.ColorPiece.WHITE,(King)this.board.getCell(7,4).getPiece());
+        for (int i=6;i<8;i++){
+            for (int j=0;j<8;j++){
+                this.player2.setAlivePieces(this.board.getCell(i,j).getPiece());
+            }
+        }
     }
 
     public Board getBoard(){

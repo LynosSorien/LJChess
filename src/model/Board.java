@@ -9,7 +9,6 @@ public class Board implements IBoard {
     private Cell board[][];
     //Constructor
     public Board() {
-        System.out.println("Board constructor");
         board = new Cell[8][8];
         CrownCell cc;
         Cell c;
@@ -38,8 +37,6 @@ public class Board implements IBoard {
                 else board[i][j] = new Cell(i, j, Cell.CellState.NULL, null);
             }
         }
-        System.out.println("Board Construction ended!");
-        System.out.println(this);
     }
     @Override
     public Cell[][] getBoard() {
