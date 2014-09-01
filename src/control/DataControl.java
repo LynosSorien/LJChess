@@ -22,6 +22,8 @@ public class DataControl {
         this.board = new Board();
         this.white = new ArrayList<Piece>();
         this.black = new ArrayList<Piece>();
+        this.player1 = new Player("Itachi", Piece.ColorPiece.BLACK);
+        this.player2 = new Player("Madara", Piece.ColorPiece.WHITE);
     }
 
     public Board getBoard(){
@@ -37,4 +39,15 @@ public class DataControl {
         if (i==0)return this.player1.getName();
         else    return this.player2.getName();
     }
+
+    /**
+     *
+     * @param turn if true white, else black
+     * @return
+     */
+    public Player getPlayer(boolean turn){
+        if (turn) return this.player2;
+        else return this.player1;
+    }
+
 }

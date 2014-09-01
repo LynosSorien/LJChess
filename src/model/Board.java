@@ -70,7 +70,9 @@ public class Board implements IBoard {
     @Override
     public String toString() {
         String print= new String("#############BOARD#############\n");
+        print+="  0  1  2  3  4  5  6  7\n";
         for(int i = 0;i<board.length;i++) {
+            print+=i+" ";
             for(int j = 0; j<board[i].length;j++) {
                 print+=board[i][j]+" ";
             }

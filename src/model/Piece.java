@@ -9,9 +9,9 @@ public abstract class Piece {
     public static enum ColorPiece {BLACK,WHITE};
     protected ColorPiece color;
     protected Cell actualCell;
-    protected Board map;
+    //protected Board map;
     protected Cell nextCell;
-    protected Player p;
+    //protected Player p;
     protected boolean firstTurn=true;
     protected ArrayList<Vector> listPosibleMoves = new ArrayList<Vector>() {
         @Override
@@ -23,8 +23,12 @@ public abstract class Piece {
         }
     };
     public abstract void pieceMovements(Board map);
-    public abstract ArrayList getPosibleMoves();
-    public abstract void movePiece(int x, int y);
+    public ArrayList getPosibleMoves(Board map){
+        ArrayList<Vector> tmp = listPosibleMoves;
+        listPosibleMoves= new ArrayList<Vector>();
+        return tmp;
+    }
+    public abstract void movePiece(int x, int y, Board map,Player p);
     public Piece(ColorPiece color){
         this.color = color;
     }

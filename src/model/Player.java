@@ -20,6 +20,7 @@ public class Player {
         }
     };
     public Player(String name, Piece.ColorPiece color) {
+        this.deadPieces = new ArrayList<Piece>();
         this.name = name;
         this.color = color;
     }

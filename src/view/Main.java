@@ -127,7 +127,16 @@ public class Main implements IMain {
 
     @Override
     public <P extends Piece> void setMovement(List<Vector> possibleMoves, P piece) {
+        int op,i;
         System.out.println(possibleMoves);
+        for (i=0;i<possibleMoves.size();i++){
+            System.out.println("option: "+i+" "+possibleMoves.get(i));
+        }
+        System.out.println("option: "+i+" Choose another piece.");
+        op = Integer.parseInt(sc.nextLine());
+        if (op != possibleMoves.size()){
+            ctrl.setMovement(possibleMoves.get(op),piece);
+        }
     }
 
     @Override

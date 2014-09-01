@@ -60,13 +60,9 @@ public class Rook extends Piece{
         }
     }
 
-    @Override
-    public ArrayList getPosibleMoves() {
-        return listPosibleMoves;
-    }
 
     @Override
-    public void movePiece(int x, int y) {
+    public void movePiece(int x, int y, Board map, Player p) {
         firstTurn=false;
         actualCell.setStatus(Cell.CellState.NULL);
         actualCell.setPiece(null);
@@ -182,5 +178,10 @@ public class Rook extends Piece{
                 }
             }
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Rook";
     }
 }

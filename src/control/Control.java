@@ -1,7 +1,8 @@
 package control;
 
+import model.Piece;
+import model.Vector;
 import view.IMain;
-import view.Main;
 
 /**
  * Created by david on 26/08/14.
@@ -22,6 +23,10 @@ public class Control {
      */
     public void startGame(){
         this.gameControl.start();
+    }
+
+    public void setMovement(Vector v, Piece p){
+        this.gameControl.move(v,p);
     }
 
     /*

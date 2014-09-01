@@ -67,12 +67,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public ArrayList getPosibleMoves() {
-        return listPosibleMoves;
-    }
-
-    @Override
-    public void movePiece(int x, int y){
+    public void movePiece(int x, int y, Board map, Player p){
         boolean checkIfCrown;
         firstTurn=false;
         actualCell.setStatus(Cell.CellState.NULL);
@@ -140,6 +135,8 @@ public class Pawn extends Piece {
         }
     }
 
-
-
+    @Override
+    public String toString(){
+        return "Pawn";
+    }
 }

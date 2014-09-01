@@ -22,35 +22,43 @@ public class King extends Piece{
             }
             if ((row-1 >= 0 && row-1 <= 7) && (col >= 0 && col <= 7)){
                 nextCell=map.getCell(row-1,col);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row-1,col));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row-1,col));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row-1,col));
             }
             if ((row-1 >= 0 && row-1 <= 7) && (col-1 >= 0 && col-1 <= 7)){
                 nextCell=map.getCell(row-1,col-1);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row-1,col-1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row-1,col-1));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row-1,col-1));
             }
             if ((row >= 0 && row <= 7) && (col-1 >= 0 && col-1 <= 7)){
                 nextCell=map.getCell(row,col-1);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row,col-1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row,col-1));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row,col-1));
             }
             if ((row+1 >= 0 && row+1 <= 7) && (col-1 >= 0 && col-1 <= 7)){
                 nextCell=map.getCell(row+1,col-1);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row+1,col-1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col-1));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row+1,col-1));
             }
             if ((row+1 >= 0 && row+1 <= 7) && (col >= 0 && col <= 7)){
                 nextCell=map.getCell(row+1,col);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row+1,col));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row+1,col));
             }
             if ((row+1 >= 0 && row+1 <= 7) && (col+1 >= 0 && col+1 <= 7)){
                 nextCell=map.getCell(row+1,col+1);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row+1,col+1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col+1));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row+1,col+1));
             }
             if ((row >= 0 && row <= 7) && (col+1 >= 0 && col+1 <= 7)){
                 nextCell=map.getCell(row,col+1);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row,col+1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row,col+1));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row,col+1));
             }
             if ((row-1 >= 0 && row-1 <= 7) && (col+1 >= 0 && col+1 <= 7)){
                 nextCell=map.getCell(row-1,col+1);
-                if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row-1,col+1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row-1,col+1));
+                else if (nextCell.getPiece().color != ColorPiece.BLACK) listPosibleMoves.add(new Vector(row-1,col+1));
             }
         }
         else{
@@ -60,48 +68,52 @@ public class King extends Piece{
             }
             if ((row-1 >= 0 && row-1 <= 7) && (col >= 0 && col <= 7)){
                 nextCell=map.getCell(row-1,col);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row-1,col));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row-1,col));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row-1,col));
             }
             if ((row-1 >= 0 && row-1 <= 7) && (col-1 >= 0 && col-1 <= 7)){
                 nextCell=map.getCell(row-1,col-1);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row-1,col-1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row-1,col-1));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row-1,col-1));
             }
             if ((row >= 0 && row <= 7) && (col-1 >= 0 && col-1 <= 7)){
                 nextCell=map.getCell(row,col-1);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row,col-1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row,col-1));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row,col-1));
             }
             if ((row+1 >= 0 && row+1 <= 7) && (col-1 >= 0 && col-1 <= 7)){
                 nextCell=map.getCell(row+1,col-1);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row+1,col-1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col-1));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row+1,col-1));
             }
             if ((row+1 >= 0 && row+1 <= 7) && (col >= 0 && col <= 7)){
                 nextCell=map.getCell(row+1,col);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row+1,col));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row+1,col));
             }
             if ((row+1 >= 0 && row+1 <= 7) && (col+1 >= 0 && col+1 <= 7)){
                 nextCell=map.getCell(row+1,col+1);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row+1,col+1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col+1));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row+1,col+1));
             }
             if ((row >= 0 && row <= 7) && (col+1 >= 0 && col+1 <= 7)){
                 nextCell=map.getCell(row,col+1);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row,col+1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row,col+1));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row,col+1));
             }
             if ((row-1 >= 0 && row-1 <= 7) && (col+1 >= 0 && col+1 <= 7)){
                 nextCell=map.getCell(row-1,col+1);
-                if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row-1,col+1));
+                if (nextCell.getStatus() == Cell.CellState.NULL) listPosibleMoves.add(new Vector(row-1,col+1));
+                else if (nextCell.getPiece().color != ColorPiece.WHITE) listPosibleMoves.add(new Vector(row-1,col+1));
             }
         }
 
 
     }
 
-    @Override
-    public ArrayList getPosibleMoves() {
-        return listPosibleMoves;
-    }
 
     @Override
-    public void movePiece(int x, int y) {
+    public void movePiece(int x, int y, Board map, Player p) {
         //comprobar enroque
         if (firstTurn){
             if (x==actualCell.getI()&& y==actualCell.getJ()-2){
@@ -193,4 +205,9 @@ public class King extends Piece{
         return freeWay;
     }
 
+
+    @Override
+    public String toString(){
+        return "King";
+    }
 }
