@@ -29,7 +29,10 @@ public class Pawn extends Piece {
             }
             if (col == 0){
                 nextCell=map.getCell(row+1,col+1);
-                if (nextCell.getStatus() != Cell.CellState.NULL) listPosibleMoves.add(new Vector(row+1,col+1));
+                if (nextCell.getStatus() != Cell.CellState.NULL){
+                    if (!nextCell.getPiece().getColor().equals(this.getColor()))
+                        listPosibleMoves.add(new Vector(row+1,col+1));
+                }
             }
             else if (col == 7){
                 nextCell=map.getCell(row+1,col-1);
@@ -85,18 +88,22 @@ public class Pawn extends Piece {
                 case IMain.ROOK:
                     actualCell.setStatus(Cell.CellState.ROOK);
                     actualCell.setPiece(new Rook(ColorPiece.WHITE));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 case IMain.BISHOP:
                     actualCell.setStatus(Cell.CellState.BISHOP);
                     actualCell.setPiece(new Bishop(ColorPiece.WHITE));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 case IMain.KNIGHT:
                     actualCell.setStatus(Cell.CellState.KNIGHT);
                     actualCell.setPiece(new Knight(ColorPiece.WHITE));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 case IMain.QUEEN:
                     actualCell.setStatus(Cell.CellState.QUEEN);
                     actualCell.setPiece(new Queen(ColorPiece.WHITE));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 default:
                     break;
@@ -110,18 +117,22 @@ public class Pawn extends Piece {
                 case IMain.ROOK:
                     actualCell.setStatus(Cell.CellState.ROOK);
                     actualCell.setPiece(new Rook(ColorPiece.BLACK));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 case IMain.BISHOP:
                     actualCell.setStatus(Cell.CellState.BISHOP);
                     actualCell.setPiece(new Bishop(ColorPiece.BLACK));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 case IMain.KNIGHT:
                     actualCell.setStatus(Cell.CellState.KNIGHT);
                     actualCell.setPiece(new Knight(ColorPiece.BLACK));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 case IMain.QUEEN:
                     actualCell.setStatus(Cell.CellState.QUEEN);
                     actualCell.setPiece(new Queen(ColorPiece.BLACK));
+                    actualCell.getPiece().setActualCell(actualCell);
                     break;
                 default:
                     break;

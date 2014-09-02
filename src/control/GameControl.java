@@ -36,7 +36,7 @@ public class GameControl extends Thread{
             System.out.println("WHITE DeadPieces: "+this.dataControl.getPlayer(true).getDeadPieces());
             System.out.println("BLACK DeadPieces: "+this.dataControl.getPlayer(false).getDeadPieces()+"\n");
             System.out.println("WHITE AlivePieces: "+this.dataControl.getPlayer(true).getAlivePieces());
-            System.out.println("BLACK AlivePieces: "+this.dataControl.getPlayer(false).getAlivePieces());
+            System.out.println("BLACK AlivePieces: "+this.dataControl.getPlayer(false).getAlivePieces()+"\n");
             if (this.turn == Turn.WHITE){
                 System.out.println("WHITE TURN");
                 do {
@@ -59,7 +59,7 @@ public class GameControl extends Thread{
                         choose = main.setMovement(pieceMovements, p);
                     }
                 }while (!choose);
-                if (this.checkVictory())this.state = VictoryConditions.WIN;
+                //if (this.checkVictory())this.state = VictoryConditions.WIN;
                 this.turn = Turn.BLACK;
             }else if (this.turn == Turn.BLACK){
                 System.out.println("BLACK TURN");
@@ -83,7 +83,7 @@ public class GameControl extends Thread{
                         choose = main.setMovement(pieceMovements, p);
                     }
                 }while (!choose);
-                if (this.checkVictory())this.state = VictoryConditions.WIN;
+                //if (this.checkVictory())this.state = VictoryConditions.WIN;
                 this.turn = turn.WHITE;
             }
         }while (this.state == VictoryConditions.PLAY);

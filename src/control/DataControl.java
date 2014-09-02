@@ -12,13 +12,9 @@ public class DataControl {
     private IBoard board;
     private Player player1;
     private Player player2;
-    private List<? extends Piece> white;
-    private List<? extends Piece> black;
 
     public DataControl(){
         this.board = new Board();
-        this.white = new ArrayList<Piece>();
-        this.black = new ArrayList<Piece>();
         this.player1 = new Player("Itachi", Piece.ColorPiece.BLACK,(King)this.board.getCell(0,4).getPiece());
         for (int i=0;i<2;i++){
             for (int j=0;j<8;j++){

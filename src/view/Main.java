@@ -129,7 +129,7 @@ public class Main implements IMain {
     @Override
     public <P extends Piece> boolean setMovement(List<Vector> possibleMoves, P piece) {
         int op,i;
-        System.out.println(possibleMoves);
+        //System.out.println(possibleMoves);
         for (i=0;i<possibleMoves.size();i++){
             System.out.println("option: "+i+" "+possibleMoves.get(i));
         }

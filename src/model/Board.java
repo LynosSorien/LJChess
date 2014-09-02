@@ -51,6 +51,7 @@ public class Board implements IBoard {
     @Override
     public Cell getCell(int x, int y) {
         //Cell[][] board=getBoard();
+        System.out.println(x+" "+y);
         return board[x][y];
     }
 
